@@ -1,0 +1,148 @@
+$color-sesion: #f9943b;
+
+@mixin buttons($b) {
+  border: none;
+  border-radius: 20px;
+  width: 250px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  gap: 10px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 2px 2px 2px 2px gray;
+  }
+}
+
+.home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  &__section1 {
+    display: flex;
+    flex-direction: column;
+    width: 24%;
+    margin-left: 10%;
+    gap: 30px;
+  }
+  &__section2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+  &__ThrowDice {
+    @include buttons(1);
+    background-color: $color-sesion;
+    margin-top: 100px;
+  }
+}
+
+.contenedor2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 150px;
+  width: 60%;
+}
+
+.dado2 {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  transform: rotateY(185deg) rotateX(150deg) rotateZ(315deg);
+  animation: rotate 10s linear infinite;
+}
+
+.lado {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border: 2px solid black;
+  position: absolute;
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lado:before {
+  content: "";
+  width: 20%;
+  height: 20%;
+  background: black;
+  border-radius: 50%;
+}
+
+.base {
+  width: 100%;
+  height: 100%;
+  transform: translateY(73px) rotateX(90deg);
+  border: 0;
+}
+
+.uno {
+  transform: translateZ(100px);
+}
+
+.dos {
+  transform: translateX(-100px) rotateY(-90deg);
+}
+
+.dos:before {
+  background: transparent;
+  box-shadow: #000 -50px -50px 0px 0px, #000 50px 50px 0px 0px;
+}
+
+.tres {
+  transform: translateY(100px) rotateX(90deg);
+}
+
+.tres:before {
+  box-shadow: #000 -50px 50px 0px 0px, #000 50px -50px 0px 0px;
+}
+
+.cuatro {
+  transform: translateY(-100px) rotateX(90deg);
+}
+
+.cuatro:before {
+  background: transparent;
+  box-shadow: #000 -50px 50px 0px 0px, #000 -50px -50px 0px 0px,
+    #000 50px 50px 0px 0px, #000 50px -50px 0px 0px;
+}
+
+.cinco {
+  transform: translateX(100px) rotateY(90deg);
+}
+
+.cinco:before {
+  box-shadow: #000 -50px -50px 0px 0px, #000 -50px 50px 0px 0px,
+    #000 50px -50px 0px 0px, #000 50px 50px 0px 0px;
+}
+
+.seis {
+  transform: translateZ(-100px);
+}
+
+.seis:before {
+  background: transparent;
+  box-shadow: #000 -50px -50px 0px 0px, #000 -50px 0px 0px 0px,
+    #000 -50px 50px 0px 0px, #000 50px -50px 0px 0px, #000 50px 0px 0px 0px,
+    #000 50px 50px 0px 0px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(0) rotateX(30deg) rotateZ(30deg);
+  }
+  to {
+    transform: rotateY(360deg) rotateX(30deg) rotateZ(30deg);
+  }
+}

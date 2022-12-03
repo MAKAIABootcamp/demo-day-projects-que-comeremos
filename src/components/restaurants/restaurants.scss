@@ -1,0 +1,36 @@
+$color-sesion: #F9943B;
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__img{
+        width: 30px;
+    }
+    &__section{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+    &__link{
+        text-decoration: none;
+        color: black;
+        &:hover{
+            color: $color-sesion;
+        }
+    }
+}
+
+.restaurants{
+    &__cards{
+        width: 250px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: aqua;
+    }
+}

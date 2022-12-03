@@ -1,0 +1,112 @@
+
+$color-facebook: #1A4789;
+$color-google:#176BEF;
+$color-sesion: #F9943B;
+$color-input: #F7F8F9;
+
+@mixin buttons ($b){
+    border: none;
+    border-radius: 20px;
+    width: 250px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    gap: 10px;
+    cursor: pointer;
+    &:hover{
+        box-shadow: 2px 2px 2px 2px gray;
+    }
+}
+@mixin inputs ($i) {
+    border: none;
+    background-color: $color-input;
+    width: 250px;
+    height: 40px;
+}
+.login{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+
+    &__article{
+        width: 100%;
+        height: 100%;
+        gap: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    &__label{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    &__inputContainer{
+        position: relative;
+    }
+    &__facebook{
+        @include buttons(1);
+        background-color: $color-facebook;
+    }
+    &__google{
+        @include buttons(1);
+        background-color: $color-google;
+    }
+    &__icon{
+        width: 20px;
+    }
+    &__buttonSesion{
+        @include buttons(1);
+        background-color: $color-sesion;
+    }
+    &__input{
+        @include inputs(1);
+        border: 0;
+        padding: 10px;
+        outline: none;
+        color: rgb(165, 165, 165);
+        transition: 0.8s;
+        &:focus ~ span,
+        &:valid ~ span{
+            font-size: 0.5rem;
+            translate: 0px -16px;
+            padding: 0 5px;
+            background-color: $color-sesion;
+            color: white;
+        }
+        &:focus,
+        &:valid{
+            box-shadow: 0 0 0 $color-sesion;
+        }
+    }
+    &__tittle{
+        font-size: 40px;
+    }
+    &__span{
+        font-size: 0.6rem;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: gray;
+        pointer-events: none;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: 0.5s;
+    }
+    &__link{
+        color: $color-sesion;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    }
+  
+@media screen and (max-width: 400px) {
+    .login__image{
+        visibility: hidden;
+    }
+}
