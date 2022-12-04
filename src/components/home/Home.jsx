@@ -7,6 +7,7 @@ import {
   actionLogout,
   actionUserLogOutAsync,
 } from "../../redux/actions/userActions";
+import ControlledCarousel from "../carousel/Carousel";
 import Navbar from "../restaurants/Navbar";
 import "./home.scss";
 
@@ -19,8 +20,8 @@ const Home = ({ isAuthentication }) => {
     "pizza picolo",
     "pizza dominos",
     "pizza daikmaku",
-    " pizza lauras",
-    " kakos pizza",
+    "pizza lauras",
+    "kakos pizza",
   ];
   const [dado, setDado] = useState(false);
   const [userFunctions, setUserFunctions] = useState(false);
@@ -124,6 +125,10 @@ const Home = ({ isAuthentication }) => {
       )}
       {isAuthentication ? userStore.displayName : ""}
       {isAuthentication ? "" : <Link to={"/login"}>Ingresar </Link>}
+      <hr />
+      <div>
+        <ControlledCarousel />
+      </div>
     </>
   );
 };
