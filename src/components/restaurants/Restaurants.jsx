@@ -29,7 +29,9 @@ const Restaurants = () => {
       {restaurantes.length? (
         restaurantes.map((restaurante, index) => (
           <Card key={index} className="restaurants__cards" onClick={() => sendRestaurant(restaurante.name)}>
-            <Card.Img variant="top" src={restaurante.imagenes} className="restaurants__img"/>
+             {/* {restaurante.imagenes.map((index,img)=>(
+            <Card.Img key={index} src={img}/>
+              ))} */}
             <Card.Body>
               <Card.Title>{restaurante.name}</Card.Title>
             </Card.Body>

@@ -1,0 +1,13 @@
+.restaurant{
+    background-color: aqua;
+    display: flex;
+    flex-direction: row-reverse;
+    
+    &__section{
+        background-color: bisque;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+    }
+}
