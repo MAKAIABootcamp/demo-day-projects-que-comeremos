@@ -1,9 +1,12 @@
 import React from 'react'
 import { Carousel } from 'react-bootstrap'
+import { useParams } from 'react-router-dom'
 import NavbarDice from '../dice/NavbarDice'
 import './restaurant.scss'
 
 const Restaurant = () => {
+  const {name}=useParams()
+  console.log(name);
   return (
     <div className='restaurant'>
         <section className='restaurant__section'>
