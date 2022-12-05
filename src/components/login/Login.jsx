@@ -41,12 +41,12 @@ const Login = ({ isAuthentication }) => {
   }
   return (
     <div className="login">
-      <section className="login__image">
+      <section className="login__section">
         <figure>
-          <img src="" alt="image" />
+          <img src="https://res.cloudinary.com/dpssc03mq/image/upload/v1670176127/e4783e07d0b1f6c6b3a39e9589f6a5f1_wcpjam.jpg" alt="image" className="login__image"/>
         </figure>
       </section>
-      <article className="login__article">
+      <section className="login__article">
         <h1 className="login__tittle">Iniciar sesión</h1>
         <form onSubmit={handleSubmit(sendInfo)} className="login__form">
           <label className="login__label">
@@ -73,7 +73,7 @@ const Login = ({ isAuthentication }) => {
           <img src={logoGoogle} alt="Logo Google" className="login__icon" />{" "}
           Continuar con Google
         </button>
-      </article>
+      </section>
     </div>
   );
 };

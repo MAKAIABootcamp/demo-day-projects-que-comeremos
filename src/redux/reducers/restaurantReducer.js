@@ -4,6 +4,7 @@ const initialState = {
   restaurantes: [],
   restauranteSelect: {},
 };
+console.log(initialState);
 
 export const restaurantReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -11,7 +12,6 @@ export const restaurantReducer = (state = initialState, action) => {
       return {
         restaurantes: action.payload,
       };
-
     case restaurantTypes.GET_RESTAURANT:
       return {
         restaurantes: [...state.restaurantes],

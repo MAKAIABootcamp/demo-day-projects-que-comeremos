@@ -1,19 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Card } from "react-bootstrap";
-import Navbar from "./Navbar";
+import { useDispatch, useSelector } from "react-redux";
+import { actionGetrestaurantesAsync } from "../../redux/actions/restaurantsActions";
+import NavbarDice from "../dice/NavbarDice";
 import "./restaurants.scss";
 
 const Restaurants = () => {
+  const dispatch = useDispatch()
+  const {restaurantes}=useSelector((store)=>store.restaurantStore)
+  console.log(restaurantes);
+  useEffect(() => {
+    if (!restaurantes.length) {
+      dispatch(actionGetrestaurantesAsync())
+   console.log(restaurantes);
+    }
+
+
+  }, [restaurantes])
+
   return (
     <div className="restaurants">
-      <Navbar />
-      <Card className="restaurants__cards">
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-      </Card>
+      <NavbarDice/>
+      <section className="restaurants__section">
+      {restaurantes.length? (
+        restaurantes.map((restaurante, index) => (
+          <Card key={index} className="restaurants__cards">
+            <Card.Img variant="top" src={restaurante.imagenes} class/>
+            <Card.Body>
+              <Card.Title>{restaurante.name}</Card.Title>
+            </Card.Body>
+          </Card>
+        ))
+      ) : (
+        <></>
+      )}
+      </section>
     </div>
   );
 };

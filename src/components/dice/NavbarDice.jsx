@@ -25,6 +25,7 @@ const NavbarDice = () => {
           Inicio
         </Link>
         <Link className="navbar__link">Favoritos</Link>
+        <Link to="/restaurants" className="navbar__link">Restaurantes</Link>
         <Link>
           {" "}
           <img src={login} alt="" className="navbar__img" />

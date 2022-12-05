@@ -146,3 +146,11 @@ $color-sesion: #f9943b;
     transform: rotateY(360deg) rotateX(30deg) rotateZ(30deg);
   }
 }
+
+@media screen and (max-width:500px) {
+  .home{
+    display: flex;
+    flex-direction: column;
+    background-color: #f9943b;
+  }
+}
