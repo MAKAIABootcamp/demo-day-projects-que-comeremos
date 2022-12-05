@@ -74,6 +74,13 @@ console.log(restaurantes);
   const handleDicePage = () => {
     navigate("/dice");
   };
+  // const imagenes=restaurantes.map((item,img)=>(
+  //   item.imagenes
+  // ))
+  // console.log(imagenes);
+ if (restaurantes.length) {
+  console.log(restaurantes[0].imagenes);
+ }
   return ( 
     <> 
     <Navbar />
@@ -122,7 +129,30 @@ console.log(restaurantes);
     </div>:"" }
 {isAuthentication?userStore.displayName:""}
 {isAuthentication?"":<Link to={'/login'} >Ingresar </Link>}
+   
+
+     
+      <span> </span>
+      <div>
+      {restaurantes.length?restaurantes.map((item,index)=>(
+        <section key={index}>
+        <span>{item.name}{index} </span>
+        
+        <span>{item.imagenes?item.imagenes.map((img,i)=>(
+          <img key={i} className='lafoto' src={img} />
+
+        )):""} </span>
+        
+        
+         </section>
+        
+      )):""}
+      
+       </div>
+      
     
+    
+   
     </>
   )
 }

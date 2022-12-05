@@ -1,5 +1,7 @@
 $color-sesion: #f9943b;
-
+.lafoto{
+  width: 50px;
+}
 @mixin buttons($b) {
   border: none;
   border-radius: 20px;
