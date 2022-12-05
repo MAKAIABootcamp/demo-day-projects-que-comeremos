@@ -1,5 +1,7 @@
 $color-sesion: #f9943b;
-
+.lafoto{
+  width: 50px;
+}
 @mixin buttons($b) {
   border: none;
   border-radius: 20px;
@@ -144,5 +146,13 @@ $color-sesion: #f9943b;
   }
   to {
     transform: rotateY(360deg) rotateX(30deg) rotateZ(30deg);
+  }
+}
+
+@media screen and (max-width:500px) {
+  .home{
+    display: flex;
+    flex-direction: column;
+    background-color: #f9943b;
   }
 }

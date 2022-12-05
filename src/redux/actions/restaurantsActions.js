@@ -2,8 +2,6 @@ import { collection, getDocs } from "firebase/firestore";
 import { dataBase } from "../../Firebase/firebasecofi";
 import { restaurantTypes } from "../types/restaurantTypes";
 
-
-
 const collectionName = "restaurantes";
 
 export const actionGetrestaurantesAsync = () => {
@@ -12,17 +10,17 @@ export const actionGetrestaurantesAsync = () => {
       const querySnapshot = await getDocs(restaurantesCollection);
       const restaurantes = [];
       try {
-        querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          restaurantes.push({
-            id: doc.id,
-            ...doc.data(),
-          });
-          //   console.log(doc.id, " => ", doc.data());
+        querySnapshot.forEach(element => {
+          const restaurant = {
+            id: element.id,
+            ...element.data(),
+          };
+          restaurantes.push(restaurant);
         });
       } catch (error) {
-        console.error(error);
+        console.log(error);
       } finally {
+        //si no se cumple la promesa envia el array vacio
         dispatch(actionGetRestaurantesSync(restaurantes));
       }
     };
