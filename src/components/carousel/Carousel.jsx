@@ -15,11 +15,7 @@ const ControlledCarousel = () => {
   return (
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
-        <img
-          className="d-flex w-25 instagramers"
-          src={koto}
-          alt="First slide"
-        />
+        <img className="d-flex instagramers" src={koto} alt="First slide" />
         <Carousel.Caption>
           {/* <h3 className="carousel__text">First slide label</h3>
           <p className="carousel__text">
@@ -29,7 +25,7 @@ const ControlledCarousel = () => {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-25 instagramers"
+          className="d-block instagramers"
           src={medellinSaborea}
           alt="Second slide"
         />
@@ -43,7 +39,7 @@ const ControlledCarousel = () => {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-25 instagramers"
+          className="d-block instagramers"
           src={unafoodiemas}
           alt="Third slide"
         />
