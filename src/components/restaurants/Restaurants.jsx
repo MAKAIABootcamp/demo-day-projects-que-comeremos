@@ -29,12 +29,16 @@ const Restaurants = () => {
       {restaurantes.length? (
         restaurantes.map((restaurante, index) => (
           <Card key={index} className="restaurants__cards" onClick={() => sendRestaurant(restaurante.name)}>
-             {/* {restaurante.imagenes.map((index,img)=>(
-            <Card.Img key={index} src={img}/>
-              ))} */}
+            
             <Card.Body>
               <Card.Title>{restaurante.name}</Card.Title>
             </Card.Body>
+            <span>{restaurante.imagenes?restaurante.imagenes.map((img,i)=>(
+          
+          <Card.Img key={i} className='lafoto' src={img} />
+
+        )):""} </span>
+             
           </Card>
         ))
       ) : (

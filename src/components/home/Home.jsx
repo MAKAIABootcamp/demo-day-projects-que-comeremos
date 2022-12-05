@@ -124,8 +124,8 @@ console.log(restaurantes);
    
 
      
-      <span> </span>
-      <div>
+      
+      {/* <div>
       {restaurantes.length?restaurantes.map((item,index)=>(
         <section key={index}>
         <span>{item.name}{index} </span>
@@ -140,7 +140,7 @@ console.log(restaurantes);
         
       )):""}
       
-       </div>
+       </div> */}
       
     
     
