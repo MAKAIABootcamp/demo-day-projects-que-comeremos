@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <>
       <footer>
-        <div>
+        <div className="footer">
           <section className="">
             <form action="">
               <div className="formRecomendations row d-flex justify-content-center">

@@ -1,0 +1,23 @@
+.restaurant{
+    background-color: aqua;
+    display: flex;
+    flex-direction: row-reverse;
+    
+    &__section{
+        background-color: bisque;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        width: 50%;
+        height: 100vh;
+    }
+    &__links{
+        display: flex;
+        gap: 25px;
+    }
+    &__icono{
+        width: 20px;
+    }
+}

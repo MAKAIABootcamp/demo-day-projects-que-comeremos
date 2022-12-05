@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import ControlledCarousel from "../carousel/Carousel";
+import Footer from "../footer/Footer";
 import { actionGetrestaurantesAsync } from "../../redux/actions/restaurantsActions";
 import {
   actionLogout,
   actionUserLogOutAsync,
 } from "../../redux/actions/userActions";
-import ControlledCarousel from "../carousel/Carousel";
-import Footer from "../footer/Footer";
-import Navbar from "../restaurants/Navbar";
+import NavbarDice from "../dice/NavbarDice";
 import "./home.scss";
 
 const Home = ({ isAuthentication }) => {
@@ -80,10 +80,10 @@ const Home = ({ isAuthentication }) => {
   const handleDicePage = () => {
     navigate("/dice");
   };
+
   return (
     <>
-      <Navbar />
-      <hr />
+      <NavbarDice />
       <section className="home">
         <div className="home__section1">
           <h1 className="home__title">¿Qué comeremos hoy?</h1>
@@ -103,10 +103,10 @@ const Home = ({ isAuthentication }) => {
               <div className="lado seis"></div>
             </div>
           </div>
-          <button onClick={handleDicePage} className="home__ThrowDice">
-            Tira el dado!
-          </button>
         </div>
+        <button onClick={handleDicePage} className="home__ThrowDice">
+          Tira el dado!
+        </button>
       </section>
 
       {isAuthentication ? <button onClick={logOut}> salir</button> : ""}
