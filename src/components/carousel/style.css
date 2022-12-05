@@ -1,0 +1,10 @@
+.instagramers {
+  margin: 0 auto 3%;
+  border: 0.3rem solid;
+  border-color: #f9943b;
+  border-radius: 300px;
+  width: 20%;
+}
+.carousel__text {
+  color: black;
+}

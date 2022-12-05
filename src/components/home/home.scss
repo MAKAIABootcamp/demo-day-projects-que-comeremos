@@ -1,7 +1,9 @@
 $color-sesion: #f9943b;
-.lafoto{
+
+.lafoto {
   width: 50px;
 }
+
 @mixin buttons($b) {
   border: none;
   border-radius: 20px;
@@ -149,8 +151,17 @@ $color-sesion: #f9943b;
   }
 }
 
-@media screen and (max-width:500px) {
-  .home{
+hr {
+  width: 50%;
+  height: 0px;
+  border: none;
+  border-top: 3px solid black;
+  margin: auto;
+  padding: 12px;
+}
+
+@media screen and (max-width: 500px) {
+  .home {
     display: flex;
     flex-direction: column;
     background-color: #f9943b;
