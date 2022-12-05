@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { actionGetrestaurantesAsync } from '../../redux/actions/restaurantsActions'
 import { actionLogout, actionUserLogOutAsync } from '../../redux/actions/userActions'
-import Navbar from '../restaurants/Navbar'
+import NavbarDice from '../dice/NavbarDice'
 import "./home.scss";
 
 const Home = ({ isAuthentication }) => {
@@ -83,7 +83,7 @@ console.log(restaurantes);
  }
   return ( 
     <> 
-    <Navbar />
+    <NavbarDice />
     <section className="home">
           <div className="home__section1">
             <h1 className="home__title">¿Qué comeremos hoy?</h1>
@@ -108,15 +108,7 @@ console.log(restaurantes);
             </button>
           </div>
         </section>
-    
-   
- 
-
-
-
-
-
-
+  
 
 
 

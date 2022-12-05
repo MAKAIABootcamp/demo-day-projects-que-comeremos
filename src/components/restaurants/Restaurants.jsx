@@ -1,19 +1,46 @@
-import React from "react";
-import { Button, Card } from "react-bootstrap";
-import Navbar from "./Navbar";
+import React, { useEffect } from "react";
+import { Button, Card, Carousel } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { actionGetrestaurantesAsync } from "../../redux/actions/restaurantsActions";
+import NavbarDice from "../dice/NavbarDice";
 import "./restaurants.scss";
 
 const Restaurants = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const {restaurantes}=useSelector((store)=>store.restaurantStore)
+  console.log(restaurantes);
+  useEffect(() => {
+    if (!restaurantes.length) {
+      dispatch(actionGetrestaurantesAsync())
+   console.log(restaurantes);
+    }
+  }, [restaurantes])
+
+  const sendRestaurant = (restaurante) => {
+    navigate(`/Restaurant${restaurante}`);
+  };
+
   return (
     <div className="restaurants">
-      <Navbar />
-      <Card className="restaurants__cards">
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-      </Card>
+      <NavbarDice/>
+      <section className="restaurants__section">
+      {restaurantes.length? (
+        restaurantes.map((restaurante, index) => (
+          <Card key={index} className="restaurants__cards" onClick={() => sendRestaurant(restaurante.name)}>
+             {/* {restaurante.imagenes.map((index,img)=>(
+            <Card.Img key={index} src={img}/>
+              ))} */}
+            <Card.Body>
+              <Card.Title>{restaurante.name}</Card.Title>
+            </Card.Body>
+          </Card>
+        ))
+      ) : (
+        <></>
+      )}
+      </section>
     </div>
   );
 };

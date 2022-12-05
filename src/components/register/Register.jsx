@@ -37,9 +37,9 @@ const Register = ({ isAuthentication }) => {
   }
   return (
     <div className="register">
-      <section className="register__image">
+      <section className="register__section">
         <figure>
-          <img src="" alt="image" />
+          <img src="https://res.cloudinary.com/dpssc03mq/image/upload/v1669911186/9d2c891f4ba614e008c108b77f33f3b3_k8zpms.jpg" alt="image" className="register__image"/>
         </figure>
       </section>
       <article className="register__article">
