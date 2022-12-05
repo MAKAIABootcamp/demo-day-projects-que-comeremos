@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Carousel } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { actionGetrestaurantesAsync } from "../../redux/actions/restaurantsActions";
 import NavbarDice from "../dice/NavbarDice";
 import "./restaurants.scss";
 
 const Restaurants = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const {restaurantes}=useSelector((store)=>store.restaurantStore)
   console.log(restaurantes);
   useEffect(() => {
@@ -14,9 +16,11 @@ const Restaurants = () => {
       dispatch(actionGetrestaurantesAsync())
    console.log(restaurantes);
     }
-
-
   }, [restaurantes])
+
+  const sendRestaurant = (restaurante) => {
+    navigate(`/Restaurant${restaurante}`);
+  };
 
   return (
     <div className="restaurants">
@@ -24,8 +28,8 @@ const Restaurants = () => {
       <section className="restaurants__section">
       {restaurantes.length? (
         restaurantes.map((restaurante, index) => (
-          <Card key={index} className="restaurants__cards">
-            <Card.Img variant="top" src={restaurante.imagenes} class/>
+          <Card key={index} className="restaurants__cards" onClick={() => sendRestaurant(restaurante.name)}>
+            <Card.Img variant="top" src={restaurante.imagenes} className="restaurants__img"/>
             <Card.Body>
               <Card.Title>{restaurante.name}</Card.Title>
             </Card.Body>

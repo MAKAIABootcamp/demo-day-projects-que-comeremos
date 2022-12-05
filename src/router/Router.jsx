@@ -8,6 +8,7 @@ import Dice from '../components/dice/Dice'
 import Home from '../components/home/Home'
 import Login from '../components/login/Login'
 import Register from '../components/register/Register'
+import Restaurant from '../components/restaurant/Restaurant'
 import Restaurants from '../components/restaurants/Restaurants'
 import SplashScreen from '../components/splash/SplashScreen'
 import { auth, dataBase } from '../Firebase/firebasecofi'
@@ -90,6 +91,7 @@ const Router = () => {
       <Route path="/Dice" element={<Dice />} />
       <Route path='/Register' element={<Register isAuthentication={isLoggedIn}/>}/>
       <Route path='/Restaurants' element={<Restaurants/>}/>
+      <Route path="/Restaurant:name" element={<Restaurant />} />
     </Routes>
     </BrowserRouter>
   )
