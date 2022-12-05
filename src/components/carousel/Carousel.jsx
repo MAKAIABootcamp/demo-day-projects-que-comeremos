@@ -21,10 +21,10 @@ const ControlledCarousel = () => {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3 className="carousel__text">First slide label</h3>
+          {/* <h3 className="carousel__text">First slide label</h3>
           <p className="carousel__text">
             Nulla vitae elit libero, a pharetra augue mollis interdum.
-          </p>
+          </p> */}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -35,10 +35,10 @@ const ControlledCarousel = () => {
         />
 
         <Carousel.Caption>
-          <h3 className="carousel__text">Second slide label</h3>
+          {/* <h3 className="carousel__text">Second slide label</h3>
           <p className="carousel__text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
+          </p> */}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -49,10 +49,10 @@ const ControlledCarousel = () => {
         />
 
         <Carousel.Caption>
-          <h3 className="carousel__text">Third slide label</h3>
+          {/* <h3 className="carousel__text">Third slide label</h3>
           <p className="carousel__text">
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          </p> */}
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

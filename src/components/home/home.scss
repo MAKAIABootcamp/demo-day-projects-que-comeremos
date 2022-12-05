@@ -146,3 +146,12 @@ $color-sesion: #f9943b;
     transform: rotateY(360deg) rotateX(30deg) rotateZ(30deg);
   }
 }
+
+hr {
+  width: 50%;
+  height: 0px;
+  border: none;
+  border-top: 3px solid black;
+  margin: auto;
+  padding: 12px;
+}

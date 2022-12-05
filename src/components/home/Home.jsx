@@ -8,6 +8,7 @@ import {
   actionUserLogOutAsync,
 } from "../../redux/actions/userActions";
 import ControlledCarousel from "../carousel/Carousel";
+import Footer from "../footer/Footer";
 import Navbar from "../restaurants/Navbar";
 import "./home.scss";
 
@@ -82,6 +83,7 @@ const Home = ({ isAuthentication }) => {
   return (
     <>
       <Navbar />
+      <hr />
       <section className="home">
         <div className="home__section1">
           <h1 className="home__title">¿Qué comeremos hoy?</h1>
@@ -128,6 +130,10 @@ const Home = ({ isAuthentication }) => {
       <hr />
       <div>
         <ControlledCarousel />
+      </div>
+      <hr />
+      <div>
+        <Footer />
       </div>
     </>
   );
