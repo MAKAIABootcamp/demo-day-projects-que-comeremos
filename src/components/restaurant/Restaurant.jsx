@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Carousel } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { actionGetrestaurantesAsync } from '../../redux/actions/restaurantsActions'
 import NavbarDice from '../dice/NavbarDice'
+import Rating from './Rating'
 import './restaurant.scss'
 
 const Restaurant = () => {
@@ -19,6 +22,9 @@ const Restaurant = () => {
         <p><img src="https://res.cloudinary.com/dpssc03mq/image/upload/v1670254421/reloj-con-sentido-horario_vnhs4y.png" alt="" className="restaurant__icono"/> Horario de atención:</p>
         <p><img src="https://res.cloudinary.com/dpssc03mq/image/upload/v1670254421/contacto-telefonico_mrd0gb.png" alt="" className="restaurant__icono"/> Contacto:</p>
       </section>
+
+
+      <article className='restaurant__article'>
       <Carousel slide={false} className="restaurant__carousel">
         <Carousel.Item>
           <img
@@ -58,6 +64,8 @@ const Restaurant = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      </article>
+      
     </div>
   );
 };
