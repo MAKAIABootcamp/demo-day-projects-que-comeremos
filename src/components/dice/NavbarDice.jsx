@@ -9,7 +9,7 @@ const NavbarDice = ({ isAuthentication }) => {
   const disptach = useDispatch();
   const userStore = useSelector((store) => store.userStore);
   const [userFunctions, setUserFunctions] = useState(false);
-  
+
   const navigate = useNavigate();
   const handleBackHome = () => {
     navigate("/home");
@@ -41,22 +41,21 @@ const NavbarDice = ({ isAuthentication }) => {
           Inicio
         </Link>
         {isAuthentication && userStore.admin ? (
-        <>
-
-          <button> Add restaurant</button>
-          <button> Edit restaurant</button>{" "}
-        </>
-       
-      ) : (
-        ""
-      )}
-      {isAuthentication && !userStore.admin ? (
-        
-        <Link className="navbar__link">Favoritos</Link>
-      ) : (
-        ""
-      )}
-        <Link to="/restaurants" className="navbar__link">Restaurantes</Link>
+          <>
+            <button> Add restaurant</button>
+            <button> Edit restaurant</button>{" "}
+          </>
+        ) : (
+          ""
+        )}
+        {isAuthentication && !userStore.admin ? (
+          <Link className="navbar__link">Favoritos</Link>
+        ) : (
+          ""
+        )}
+        <Link to="/restaurants" className="navbar__link">
+          Restaurantes
+        </Link>
         <Link>
           {" "}
           <img src={login} alt="" className="navbar__img" />
