@@ -57,8 +57,11 @@ $color-sesion: #f9943b;
 
 .dado2 {
   position: relative;
-  width: 290px;
+
+  width: 200px;
   height: 200px;
+  min-height: 200px;
+  min-width: 200px;
   transform-style: preserve-3d;
   transform: rotateY(185deg) rotateX(150deg) rotateZ(315deg);
   animation: rotate 10s linear infinite;

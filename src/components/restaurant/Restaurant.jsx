@@ -11,7 +11,7 @@ const Restaurant = () => {
   const {name}=useParams()
   console.log(name);
   const disptach = useDispatch();
-  const [restaurant,setRestaurant]=useState(false)
+  const [restaurant,setRestaurant]=useState({})
   const { restaurantes } = useSelector((store) => store.restaurantStore)
   useEffect(() => {
     if (!restaurantes.length) {
@@ -24,28 +24,38 @@ const Restaurant = () => {
   }, [restaurantes]);
   useEffect(() => {
     if (restaurantes.length) {
-      const restaurantSelect= restaurantes.find((res)=>res.name=name)
+      console.log(restaurantes);
+      const restaurantSelect= restaurantes.find((res)=>res.name===name)
       console.log(restaurantSelect);
       setRestaurant(restaurantSelect)
+      
      
       
     }
    
-  }, [restaurant,restaurantes]);
-  console.log(restaurant);
+  }, [restaurantes]);
+ 
+  // console.log(restaurant);
+  // console.log(restaurant.imagenes?restaurant.imagenes:"");
   
   
   return (
     <div className="restaurant">
     
       <section className="restaurant__section">
-        <h1>{restaurant.name?restaurant.name:""} </h1>
+        <h1>{restaurant && restaurant.name?restaurant.name:"..."} </h1>
+        
+
         <section className="restaurant__links">
           <p>¡Me gusta!</p>
           <p>Compartir</p>
         </section>
         <p><img src="https://res.cloudinary.com/dpssc03mq/image/upload/v1670254421/clavo_xmogpe.png" alt="" className="restaurant__icono"/> Dirección:</p>
-        <p><img src="https://res.cloudinary.com/dpssc03mq/image/upload/v1670254421/reloj-con-sentido-horario_vnhs4y.png" alt="" className="restaurant__icono"/> Horario de atención:</p>
+        <span><img src="https://res.cloudinary.com/dpssc03mq/image/upload/v1670254421/reloj-con-sentido-horario_vnhs4y.png" alt="" className="restaurant__icono"/> Horario de atención:
+        {restaurant && restaurant.horarios?restaurant.horarios.map((item,index)=>(
+          <p key={index}>{item} </p>
+        )):"..."}
+        </span>
         <p><img src="https://res.cloudinary.com/dpssc03mq/image/upload/v1670254421/contacto-telefonico_mrd0gb.png" alt="" className="restaurant__icono"/> Contacto:</p>
       </section>
 
@@ -95,27 +105,34 @@ const Restaurant = () => {
       <article className='restaurant__article'>
       
 
-      <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
-  <div className="carousel-inner">
-  {restaurant?restaurant.imagenes.map((item,index)=>(
-    <div className="carousel-item active">
-    
-      <img src={item} className="d-block w-100" alt="..."/>
-    </div>
-  )):""}
+      
+  <Carousel>
+  {restaurant && restaurant.imagenes?restaurant.imagenes.map((item,index)=>(
+   
     
     
+      <Carousel.Item key={index}>
+        <img
+          className="d-block w-100"
+          src={item}
+          alt="Third slide"
+        />
+
+        <Carousel.Caption>
+          {/* <h3>Third slide label</h3>
+          <p>
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          </p> */}
+        </Carousel.Caption>
+      </Carousel.Item>
+  )):"..."}
+      
+      
+    </Carousel>
     
-  </div>
-  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Previous</span>
-  </button>
-  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Next</span>
-  </button>
-</div>
+    
+    
+  
       
       </article>
     </div>

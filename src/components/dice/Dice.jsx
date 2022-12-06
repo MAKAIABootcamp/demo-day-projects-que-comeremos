@@ -5,7 +5,7 @@ import { actionGetrestaurantesAsync } from "../../redux/actions/restaurantsActio
 import "./dice.scss";
 import NavbarDice from "./NavbarDice";
 
-const Dice = () => {
+const Dice = ({isAuthentication}) => {
   const {restaurantes}=useSelector((store)=>store.restaurantStore)
   const disptach=useDispatch()
   // const lista = [
@@ -50,7 +50,7 @@ const Dice = () => {
   }
   return (
     <>
-      <NavbarDice />
+     <NavbarDice isAuthentication={isAuthentication} />
       {lista.length?<div className="contenedor">
         {dado ? (
           <div className={"dado"}>

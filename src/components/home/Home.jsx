@@ -83,7 +83,7 @@ const Home = ({ isAuthentication }) => {
 
   return (
     <>
-      <NavbarDice />
+      <NavbarDice isAuthentication={isAuthentication} />
       <section className="home">
         <div className="home__section1">
           <h1 className="home__title">¿Qué comeremos hoy?</h1>
@@ -110,7 +110,7 @@ const Home = ({ isAuthentication }) => {
       </section>
 
       {isAuthentication ? <button onClick={logOut}> salir</button> : ""}
-      {isAuthentication && userStore.admin ? (
+      {/* {isAuthentication && userStore.admin ? (
         <div>
           <button> Add restaurant</button>
           <button> Edit restaurant</button>{" "}
@@ -124,7 +124,7 @@ const Home = ({ isAuthentication }) => {
         </div>
       ) : (
         ""
-      )}
+      )} */}
       {isAuthentication ? userStore.displayName : ""}
       {isAuthentication ? "" : <Link to={"/login"}>Ingresar </Link>}
       <hr />
