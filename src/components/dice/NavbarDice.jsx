@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import {
   actionLogout,
@@ -10,17 +10,14 @@ import login from "../../assets/user.png";
 import "./dice.scss";
 
 const NavbarDice = ({ isAuthentication }) => {
+  const disptach = useDispatch();
+  const userStore = useSelector((store) => store.userStore);
+  const [userFunctions, setUserFunctions] = useState(false);
+
   const navigate = useNavigate();
   const handleBackHome = () => {
     navigate("/home");
   };
-
-  const [userFunctions, setUserFunctions] = useState(false);
-  const disptach = useDispatch();
-  const logOut = () => {
-    disptach(actionUserLogOutAsync());
-  };
-
   useEffect(() => {
     if (isAuthentication) {
       setUserFunctions(true);
@@ -28,7 +25,10 @@ const NavbarDice = ({ isAuthentication }) => {
       setUserFunctions(false);
     }
   }, [isAuthentication, userFunctions]);
-
+  useEffect(() => {
+    console.log(userStore);
+    console.log(isAuthentication);
+  }, [userStore]);
   return (
     <div className="navbar">
       <section className="navbar__section">
@@ -44,7 +44,19 @@ const NavbarDice = ({ isAuthentication }) => {
         <Link to="/home" className="navbar__link">
           Inicio
         </Link>
-        <Link className="navbar__link">Favoritos</Link>
+        {isAuthentication && userStore.admin ? (
+          <>
+            <button> Add restaurant</button>
+            <button> Edit restaurant</button>{" "}
+          </>
+        ) : (
+          ""
+        )}
+        {isAuthentication && !userStore.admin ? (
+          <Link className="navbar__link">Favoritos</Link>
+        ) : (
+          ""
+        )}
         <Link to="/restaurants" className="navbar__link">
           Restaurantes
         </Link>

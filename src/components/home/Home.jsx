@@ -3,16 +3,23 @@ import ControlledCarousel from "../carousel/Carousel";
 import Footer from "../footer/Footer";
 import NavbarDice from "../dice/NavbarDice";
 import "./home.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { actionUserLogOutAsync } from "../../redux/actions/userActions";
 
-const Home = () => {
+const Home = ({ isAuthentication }) => {
+  const dispatch = useDispatch();
+  const logOut = () => {
+    dispatch(actionUserLogOutAsync());
+  };
+  const userStore = useSelector((store) => store.userStore);
   const navigate = useNavigate();
   const handleDicePage = () => {
     navigate("/dice");
   };
   return (
     <>
-      <NavbarDice />
+      <NavbarDice isAuthentication={isAuthentication} />
       <section className="home">
         <div className="home__section1">
           <h1 className="home__title">¿Qué comeremos hoy?</h1>
@@ -37,6 +44,25 @@ const Home = () => {
           </button>
         </div>
       </section>
+
+      {isAuthentication ? <button onClick={logOut}> salir</button> : ""}
+      {/* {isAuthentication && userStore.admin ? (
+        <div>
+          <button> Add restaurant</button>
+          <button> Edit restaurant</button>{" "}
+        </div>
+      ) : (
+        ""
+      )}
+      {isAuthentication && !userStore.admin ? (
+        <div>
+          <button> Favoritos</button>
+        </div>
+      ) : (
+        ""
+      )} */}
+      {isAuthentication ? userStore.displayName : ""}
+      {isAuthentication ? "" : <Link to={"/login"}>Ingresar </Link>}
       <hr />
       <div>
         <ControlledCarousel />

@@ -1,16 +1,14 @@
 .restaurant{
-    background-color: aqua;
     display: flex;
     flex-direction: row-reverse;
     
     &__section{
-        background-color: bisque;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         gap: 20px;
-        width: 50%;
+        width: 100%;
         height: 100vh;
     }
     &__links{
@@ -20,4 +18,24 @@
     &__icono{
         width: 20px;
     }
+    &__article{
+        background-color: aqua;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__carousel{
+        width: 500px;
+        height: 500px;
+        background-color: aquamarine;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        text-align: center;
+    }
+}
+.d-block{
+    
+        width: 200px;
+        height: 200px;
+    
 }

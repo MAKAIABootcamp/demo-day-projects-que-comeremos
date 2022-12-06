@@ -88,9 +88,9 @@ const Router = () => {
     <Route path="/" element={<SplashScreen/>} />
       <Route path='/Home' element={<Home isAuthentication={isLoggedIn} />}/>
       <Route path='/Login' element={<Login isAuthentication={isLoggedIn}/>}/>
-      <Route path="/Dice" element={<Dice />} />
+      <Route path="/Dice" element={<Dice isAuthentication={isLoggedIn} />} />
       <Route path='/Register' element={<Register isAuthentication={isLoggedIn}/>}/>
-      <Route path='/Restaurants' element={<Restaurants/>}/>
+      <Route path='/Restaurants' element={<Restaurants isAuthentication={isLoggedIn} />}/>
       <Route path="/Restaurant:name" element={<Restaurant />} />
     </Routes>
     </BrowserRouter>
