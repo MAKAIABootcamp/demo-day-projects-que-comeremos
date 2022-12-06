@@ -9,9 +9,7 @@ import { actionUserLogOutAsync } from "../../redux/actions/userActions";
 
 const Home = ({ isAuthentication }) => {
   const dispatch = useDispatch();
-  const logOut = () => {
-    dispatch(actionUserLogOutAsync());
-  };
+
   const userStore = useSelector((store) => store.userStore);
   const navigate = useNavigate();
   const handleDicePage = () => {
@@ -44,8 +42,6 @@ const Home = ({ isAuthentication }) => {
           </button>
         </div>
       </section>
-
-      {isAuthentication ? <button onClick={logOut}> salir</button> : ""}
       {/* {isAuthentication && userStore.admin ? (
         <div>
           <button> Add restaurant</button>
@@ -61,8 +57,6 @@ const Home = ({ isAuthentication }) => {
       ) : (
         ""
       )} */}
-      {isAuthentication ? userStore.displayName : ""}
-      {isAuthentication ? "" : <Link to={"/login"}>Ingresar </Link>}
       <hr />
       <div>
         <ControlledCarousel />

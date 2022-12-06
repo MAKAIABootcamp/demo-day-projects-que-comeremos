@@ -11,6 +11,9 @@ import "./dice.scss";
 
 const NavbarDice = ({ isAuthentication }) => {
   const disptach = useDispatch();
+  const logOut = () => {
+    disptach(actionUserLogOutAsync());
+  };
   const userStore = useSelector((store) => store.userStore);
   const [userFunctions, setUserFunctions] = useState(false);
 
@@ -60,10 +63,15 @@ const NavbarDice = ({ isAuthentication }) => {
         <Link to="/restaurants" className="navbar__link">
           Restaurantes
         </Link>
-        <Link>
-          {" "}
-          <img src={login} alt="" className="navbar__img" />
-        </Link>
+        {isAuthentication ? userStore.displayName : ""}
+        {isAuthentication ? (
+          ""
+        ) : (
+          <Link to={"/login"}>
+            <img src={login} alt="" className="navbar__img" />{" "}
+          </Link>
+        )}
+        {isAuthentication ? <button onClick={logOut}> salir</button> : ""}
       </section>
     </div>
   );
