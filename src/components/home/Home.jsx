@@ -103,10 +103,10 @@ const Home = ({ isAuthentication }) => {
               <div className="lado seis"></div>
             </div>
           </div>
+          <button onClick={handleDicePage} className="home__ThrowDice">
+            Tira el dado!
+          </button>
         </div>
-        <button onClick={handleDicePage} className="home__ThrowDice">
-          Tira el dado!
-        </button>
       </section>
 
       {isAuthentication ? <button onClick={logOut}> salir</button> : ""}
