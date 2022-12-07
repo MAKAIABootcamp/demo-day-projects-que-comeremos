@@ -12,6 +12,7 @@ const Restaurants = ({isAuthentication}) => {
   const navigate = useNavigate()
   const {restaurantes}=useSelector((store)=>store.restaurantStore)
   console.log(restaurantes);
+  const userStore = useSelector((store) => store.userStore);
   useEffect(() => {
     if (!restaurantes.length) {
       dispatch(actionGetrestaurantesAsync())
@@ -22,6 +23,9 @@ const Restaurants = ({isAuthentication}) => {
   const sendRestaurant = (restaurante) => {
     navigate(`/Restaurant${restaurante}`);
   };
+  const addToFavorite=()=>{
+
+  }
 
   return (
     <div className="restaurants">
@@ -34,6 +38,12 @@ const Restaurants = ({isAuthentication}) => {
             <Card.Body>
               <Card.Title>{restaurante.name}</Card.Title>
             </Card.Body>
+            {isAuthentication && !userStore.admin ? (
+              <button onClick={addToFavorite}> add Fav</button>
+        ) : (
+          ""
+        )}
+            
             <span>{restaurante.imagenes?restaurante.imagenes.map((img,i)=>(
           
           <Card.Img key={i} className='lafoto' src={img} />
