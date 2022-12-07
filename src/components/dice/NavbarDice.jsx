@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  actionLogout,
+  actionUserLogOutAsync,
+} from "../../redux/actions/userActions";
 import logo from "../../assets/logo.png";
 import login from "../../assets/user.png";
 import "./dice.scss";
 
 const NavbarDice = ({ isAuthentication }) => {
   const disptach = useDispatch();
+  const logOut = () => {
+    disptach(actionUserLogOutAsync());
+  };
   const userStore = useSelector((store) => store.userStore);
   const [userFunctions, setUserFunctions] = useState(false);
 
@@ -31,8 +38,8 @@ const NavbarDice = ({ isAuthentication }) => {
         <button onClick={handleBackHome} className="navbar__buttonBack">
           back
         </button>
-        <figure>
-          <img src={logo} alt="" className="navbar__img" />
+        <figure className="navbar__figure">
+          <img src={logo} alt="" className="navbar__imgLogo" />
         </figure>
       </section>
 
@@ -56,10 +63,15 @@ const NavbarDice = ({ isAuthentication }) => {
         <Link to="/restaurants" className="navbar__link">
           Restaurantes
         </Link>
-        <Link>
-          {" "}
-          <img src={login} alt="" className="navbar__img" />
-        </Link>
+        {isAuthentication ? userStore.displayName : ""}
+        {isAuthentication ? (
+          ""
+        ) : (
+          <Link to={"/login"}>
+            <img src={login} alt="" className="navbar__img" />{" "}
+          </Link>
+        )}
+        {isAuthentication ? <button onClick={logOut}> salir</button> : ""}
       </section>
     </div>
   );

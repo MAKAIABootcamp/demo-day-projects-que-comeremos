@@ -1,86 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+import React from "react";
 import ControlledCarousel from "../carousel/Carousel";
 import Footer from "../footer/Footer";
-import { actionGetrestaurantesAsync } from "../../redux/actions/restaurantsActions";
-import {
-  actionLogout,
-  actionUserLogOutAsync,
-} from "../../redux/actions/userActions";
 import NavbarDice from "../dice/NavbarDice";
 import "./home.scss";
+import { useNavigate, Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { actionUserLogOutAsync } from "../../redux/actions/userActions";
 
 const Home = ({ isAuthentication }) => {
-  const lista = [
-    "pizzas juan",
-    "pizza picolo",
-    "pizza carlota",
-    "carlos pizza",
-    "pizza picolo",
-    "pizza dominos",
-    "pizza daikmaku",
-    "pizza lauras",
-    "kakos pizza",
-  ];
-  const [dado, setDado] = useState(false);
-  const [userFunctions, setUserFunctions] = useState(false);
-  const disptach = useDispatch();
+  const dispatch = useDispatch();
+
   const userStore = useSelector((store) => store.userStore);
-  const { restaurantes } = useSelector((store) => store.restaurantStore);
   const navigate = useNavigate();
-  const logOut = () => {
-    disptach(actionUserLogOutAsync());
-  };
-
-  useEffect(() => {
-    if (isAuthentication) {
-      setUserFunctions(true);
-    } else {
-      setUserFunctions(false);
-    }
-  }, [isAuthentication, userFunctions]);
-
-  // useEffect(() => {
-  // console.log(userStore);
-  // if (!userStore.name) {
-
-  //   navigate('/login')
-  //   console.log(userStore.name);
-  // }
-  // }, [userStore])
-
-  useEffect(() => {
-    if (!restaurantes.length) {
-      disptach(actionGetrestaurantesAsync());
-      console.log(restaurantes);
-    }
-  }, [restaurantes]);
-
-  console.log(restaurantes);
-  useEffect(() => {
-    console.log(userStore);
-  }, [userStore]);
-
-  const changeDado = () => {
-    setDado(true);
-    setTimeout(() => {
-      const x = Math.floor(Math.random() * lista.length);
-      console.log(x);
-      const y = lista.at(x);
-      console.log(y);
-      Swal.fire("tu restaurante sera", `${y}`, "info");
-    }, 1000);
-
-    setTimeout(() => {
-      setDado(false);
-    }, 2000);
-  };
   const handleDicePage = () => {
     navigate("/dice");
   };
-
   return (
     <>
       <NavbarDice isAuthentication={isAuthentication} />
@@ -103,13 +37,11 @@ const Home = ({ isAuthentication }) => {
               <div className="lado seis"></div>
             </div>
           </div>
+          <button onClick={handleDicePage} className="home__ThrowDice">
+            Tira el dado!
+          </button>
         </div>
-        <button onClick={handleDicePage} className="home__ThrowDice">
-          Tira el dado!
-        </button>
       </section>
-
-      {isAuthentication ? <button onClick={logOut}> salir</button> : ""}
       {/* {isAuthentication && userStore.admin ? (
         <div>
           <button> Add restaurant</button>
@@ -125,8 +57,6 @@ const Home = ({ isAuthentication }) => {
       ) : (
         ""
       )} */}
-      {isAuthentication ? userStore.displayName : ""}
-      {isAuthentication ? "" : <Link to={"/login"}>Ingresar </Link>}
       <hr />
       <div>
         <ControlledCarousel />

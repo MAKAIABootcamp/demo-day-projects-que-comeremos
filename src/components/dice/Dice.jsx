@@ -5,9 +5,9 @@ import { actionGetrestaurantesAsync } from "../../redux/actions/restaurantsActio
 import "./dice.scss";
 import NavbarDice from "./NavbarDice";
 
-const Dice = ({isAuthentication}) => {
-  const {restaurantes}=useSelector((store)=>store.restaurantStore)
-  const disptach=useDispatch()
+const Dice = ({ isAuthentication }) => {
+  const { restaurantes } = useSelector((store) => store.restaurantStore);
+  const disptach = useDispatch();
   // const lista = [
   //   "pizzas juan",
   //   "pizza picolo",
@@ -22,18 +22,14 @@ const Dice = ({isAuthentication}) => {
   const [dado, setDado] = useState(false);
   useEffect(() => {
     if (!restaurantes.length) {
-      disptach(actionGetrestaurantesAsync())
-   console.log(restaurantes);
+      disptach(actionGetrestaurantesAsync());
+      console.log(restaurantes);
     }
-   
-   
-  }, [restaurantes])
+  }, [restaurantes]);
   console.log(restaurantes);
-  const lista= restaurantes.map((item,index)=>(
-    item.name
-  ))
-  
-  const changeDado=()=>{
+  const lista = restaurantes.map((item, index) => item.name);
+
+  const changeDado = () => {
     setDado(true);
     setTimeout(() => {
       const x = Math.floor(Math.random() * lista.length);
@@ -46,33 +42,35 @@ const Dice = ({isAuthentication}) => {
     setTimeout(() => {
       setDado(false);
     }, 3500);
-  
-  }
+  };
   return (
     <>
-     <NavbarDice isAuthentication={isAuthentication} />
-      {lista.length?<div className="contenedor">
-        {dado ? (
-          <div className={"dado"}>
-            <div className="lado uno"></div>
-            <div className="lado dos"></div>
-            <div className="lado tres"></div>
-            <div className="lado cuatro"></div>
-            <div className="lado cinco"></div>
-            <div className="lado seis"></div>
-          </div>
-        ) : (
-          <div onClick={changeDado} className={"dados"}>
-            <div className="lado uno"></div>
-            <div className="lado dos"></div>
-            <div className="lado tres"></div>
-            <div className="lado cuatro"></div>
-            <div className="lado cinco"></div>
-            <div className="lado seis"></div>
-          </div>
-        )}
-      </div>:<h1> LOADING ...</h1>}
-      
+      <NavbarDice isAuthentication={isAuthentication} />
+      {lista.length ? (
+        <div className="contenedor">
+          {dado ? (
+            <div className={"dado"}>
+              <div className="lado uno"></div>
+              <div className="lado dos"></div>
+              <div className="lado tres"></div>
+              <div className="lado cuatro"></div>
+              <div className="lado cinco"></div>
+              <div className="lado seis"></div>
+            </div>
+          ) : (
+            <div onClick={changeDado} className={"dados"}>
+              <div className="lado uno"></div>
+              <div className="lado dos"></div>
+              <div className="lado tres"></div>
+              <div className="lado cuatro"></div>
+              <div className="lado cinco"></div>
+              <div className="lado seis"></div>
+            </div>
+          )}
+        </div>
+      ) : (
+        <h1> LOADING ...</h1>
+      )}
     </>
   );
 };
