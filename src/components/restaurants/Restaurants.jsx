@@ -6,7 +6,8 @@ import { actionGetrestaurantesAsync } from "../../redux/actions/restaurantsActio
 import NavbarDice from "../dice/NavbarDice";
 import "./restaurants.scss";
 
-const Restaurants = () => {
+const Restaurants = ({isAuthentication}) => {
+  
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const {restaurantes}=useSelector((store)=>store.restaurantStore)
@@ -24,7 +25,7 @@ const Restaurants = () => {
 
   return (
     <div className="restaurants">
-      <NavbarDice/>
+      <NavbarDice isAuthentication={isAuthentication} />
       <section className="restaurants__section">
       {restaurantes.length? (
         restaurantes.map((restaurante, index) => (

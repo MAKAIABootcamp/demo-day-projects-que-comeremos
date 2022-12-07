@@ -44,6 +44,7 @@ $color-sesion: #f9943b;
     @include buttons(1);
     background-color: $color-sesion;
     margin-top: 100px;
+    margin-bottom: 100px;
   }
 }
 
@@ -57,8 +58,11 @@ $color-sesion: #f9943b;
 
 .dado2 {
   position: relative;
-  width: 290px;
+
+  width: 200px;
   height: 200px;
+  min-height: 200px;
+  min-width: 200px;
   transform-style: preserve-3d;
   transform: rotateY(185deg) rotateX(150deg) rotateZ(315deg);
   animation: rotate 10s linear infinite;
@@ -157,13 +161,12 @@ hr {
   border: none;
   border-top: 3px solid black;
   margin: auto;
-  padding: 12px;
+  padding: 15px;
 }
 
 @media screen and (max-width: 500px) {
   .home {
     display: flex;
     flex-direction: column;
-    background-color: #f9943b;
   }
 }
