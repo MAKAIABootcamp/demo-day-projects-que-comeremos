@@ -71,7 +71,7 @@ const NavbarDice = ({ isAuthentication }) => {
             <img src={login} alt="" className="navbar__img" />{" "}
           </Link>
         )}
-        {isAuthentication ? <button onClick={logOut}> salir</button> : ""}
+        {isAuthentication ? <button onClick={logOut} className="navbar__salir"> salir</button> : ""}
       </section>
     </div>
   );
