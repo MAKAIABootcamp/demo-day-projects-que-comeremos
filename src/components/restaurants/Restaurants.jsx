@@ -38,18 +38,37 @@ const Restaurants = ({isAuthentication}) => {
             <Card.Body>
               <Card.Title>{restaurante.name}</Card.Title>
             </Card.Body>
-            {isAuthentication && !userStore.admin ? (
+
+            
+            {/* <span>{restaurante.imagenes?restaurante.imagenes.map((img,i)=>(
+          
+          <Card.Img key={i} className='lafoto' src={img} />
+          
+
+        )):""} </span> */}
+        <Carousel slide={false} className="restaurants__carousel">
+        {restaurante.imagenes?restaurante.imagenes.map((img,index)=>(
+     <Carousel.Item key={index}>
+       <img
+         className="restaurants__imgs"
+         src={img}
+         alt="First slide"
+       />
+       <Carousel.Caption>
+
+       </Carousel.Caption>
+     </Carousel.Item>
+    
+  )):"..."}
+      
+      
+    </Carousel>
+    
+    {isAuthentication && !userStore.admin ? (
               <button onClick={addToFavorite}> add Fav</button>
         ) : (
           ""
         )}
-            
-            <span>{restaurante.imagenes?restaurante.imagenes.map((img,i)=>(
-          
-          <Card.Img key={i} className='lafoto' src={img} />
-
-        )):""} </span>
-             
           </Card>
         ))
       ) : (

@@ -44,9 +44,8 @@ const Restaurant = () => {
     <NavbarDice/>
     <div className="restaurant">
       <section className="restaurant__section">
-        <h1>{restaurant && restaurant.name?restaurant.name:"..."} </h1>
-        
-
+        <h1 className='restaurant__h1'>{restaurant && restaurant.name?restaurant.name:"..."} </h1>
+        <RatingComponent/>
         <section className="restaurant__links">
           <p>¡Me gusta!</p>
           <p>Compartir</p>
