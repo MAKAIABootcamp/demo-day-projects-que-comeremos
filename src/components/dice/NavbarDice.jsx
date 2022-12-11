@@ -56,7 +56,7 @@ const NavbarDice = ({ isAuthentication }) => {
           ""
         )}
         {isAuthentication && !userStore.admin ? (
-          <Link className="navbar__link">Favoritos</Link>
+          <Link to="/favorites" className="navbar__link">Favoritos</Link>
         ) : (
           ""
         )}

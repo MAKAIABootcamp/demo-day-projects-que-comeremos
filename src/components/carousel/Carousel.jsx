@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./style.css";
+import "./style.scss";
 import Carousel from "react-bootstrap/Carousel";
 import koto from "../../assets/koto.png";
 import medellinSaborea from "../../assets/medellinSaborea.png";

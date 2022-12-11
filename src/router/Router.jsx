@@ -5,6 +5,7 @@ import { Spinner } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Dice from '../components/dice/Dice'
+import Favoritos from '../components/favoritos/Favoritos'
 import Home from '../components/home/Home'
 import Login from '../components/login/Login'
 import Register from '../components/register/Register'
@@ -92,6 +93,7 @@ const Router = () => {
       <Route path='/Register' element={<Register isAuthentication={isLoggedIn}/>}/>
       <Route path='/Restaurants' element={<Restaurants isAuthentication={isLoggedIn} />}/>
       <Route path="/Restaurant:name" element={<Restaurant />} />
+      <Route path='/favorites' element={<Favoritos/>} />
     </Routes>
     </BrowserRouter>
   )
