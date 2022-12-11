@@ -28,9 +28,6 @@ const Restaurant = () => {
     }
   }, [restaurantes]);
 
-  // console.log(restaurant);
-  // console.log(restaurant.imagenes?restaurant.imagenes:"");
-
   return (
     <>
       <NavbarDice />
@@ -63,7 +60,7 @@ const Restaurant = () => {
               alt=""
               className="restaurant__icono"
             />{" "}
-            Horario de atención: 
+            Horario de atención: <br/>
             {restaurant && restaurant.horarios ? restaurant.horarios : "..."}{" "}
 
           </p>
@@ -90,10 +87,7 @@ const Restaurant = () => {
                     />
 
                     <Carousel.Caption>
-                      {/* <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p> */}
+                      
                     </Carousel.Caption>
                   </Carousel.Item>
                 ))

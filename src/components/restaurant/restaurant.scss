@@ -16,8 +16,9 @@ $color-sesion: #f9943b;
   &__links {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 60px;
-    width: 300px;
+    width: 100%;
     cursor: pointer;
   }
   &__icono {
@@ -39,11 +40,14 @@ $color-sesion: #f9943b;
   &__h1 {
     color: $color-sesion;
     font-weight: bold;
+    width: 80%;
   }
   &__p {
-    width: 290px;
+    width: 80%;
     line-height: normal;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
     display: flex;
     flex-wrap:wrap;
     line-height: 20px;
