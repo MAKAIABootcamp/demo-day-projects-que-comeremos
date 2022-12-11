@@ -7,6 +7,7 @@ import NavbarDice from "../dice/NavbarDice";
 import { actionAddFavoritosAsync } from "../../redux/actions/favoritosActions";
 import "./restaurants.scss";
 import { actionGetFavoritesAsync } from "../../redux/actions/favoritosActions";
+import Swal from "sweetalert2";
 
 const Restaurants = ({ isAuthentication }) => {
   const dispatch = useDispatch();
@@ -33,13 +34,20 @@ const Restaurants = ({ isAuthentication }) => {
     const favorito = {
       restaurantName: restaurant,
       uid: userRuta,
-    };
+      
+    }
+    Swal.fire(
+      'Buen trabajo!',
+      'Agregado a su lista de Favoritos',
+      'success'
+    )
     
 
     dispatch(actionAddFavoritosAsync(favorito));
   };
   const existe = favoritos.find((res) => res.restaurantName === "Game Over");
   console.log(existe);
+  
 
   return (
     <div className="restaurants">
@@ -78,7 +86,7 @@ const Restaurants = ({ isAuthentication }) => {
               {!favoritos.find((res) => res.restaurantName === restaurante.name)
                 ? ""
                 : <button
-                    
+                    className="restaurants__button"
                   >
                     {" "}
                     añadido
@@ -87,13 +95,14 @@ const Restaurants = ({ isAuthentication }) => {
                 !favoritos.find(
                   (res) => res.restaurantName === restaurante.name
                 ) ? (
-                  <button
+                  <button className="restaurants__button"
                     onClick={() =>
                       addToFavorite(restaurante.name, userStore.uid)
                     }
                   >
                     {" "}
-                    añadir fav
+                    Favoritos
+                    
                   </button>
                 ) : (
                   ""

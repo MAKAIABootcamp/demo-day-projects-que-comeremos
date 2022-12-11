@@ -1,5 +1,24 @@
 $color-sesion: #F9943B;
 
+
+@mixin buttons($b) {
+    border: none;
+    border-radius: 20px;
+    width: 80px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: $color-sesion;
+    gap: 10px;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 2px 2px 2px 2px gray;
+    }
+  }
+
+  
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -38,18 +57,20 @@ $color-sesion: #F9943B;
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-wrap: wrap;
         box-shadow: 4px 4px 4px gainsboro;
         &:hover{
             box-shadow: 4px 4px 4px 4px $color-sesion;
         }
 
     }
+    &__button{
+        @include buttons(1)
+    }
   
 }
 .restaurants__imgs{
     width: 190px;
     height: 190px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 

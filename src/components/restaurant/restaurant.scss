@@ -15,7 +15,10 @@ $color-sesion: #F9943B;
     }
     &__links{
         display: flex;
-        gap: 25px;
+        align-items: center;
+        gap: 60px;
+        width: 300px;
+        cursor: pointer;
     }
     &__icono{
         width: 20px;
@@ -39,6 +42,8 @@ $color-sesion: #F9943B;
     }
     &__p{
         width: 290px;
+        line-height: normal;
+
     }
 }
 .d-block{

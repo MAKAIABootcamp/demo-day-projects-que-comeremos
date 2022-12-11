@@ -47,7 +47,7 @@ const Restaurant = () => {
             <p><img src="https://res.cloudinary.com/dpssc03mq/image/upload/v1670717683/pulgares-hacia-arriba_cjrhvp.png" alt="Icono Me gusta" className="restaurant__icono" /> ¡Me gusta!</p>
             <p><img src="https://res.cloudinary.com/dpssc03mq/image/upload/v1670717491/share_a2wzru.png" alt="Icono Compartir" className="restaurant__icono"/> Compartir</p>
           </section>
-          <span>
+          <p className="restaurant__p">
             <img
               src="https://res.cloudinary.com/dpssc03mq/image/upload/v1670254421/clavo_xmogpe.png"
               alt=""
@@ -56,28 +56,29 @@ const Restaurant = () => {
             Dirección: <br />
             <p className="restaurant__p">{restaurant && restaurant.sedes ? restaurant.sedes : "..."}{" "}</p>
 
-            </span>
+            </p>
 
-          <span>
+          <p className="restaurant__p">
             <img
               src="https://res.cloudinary.com/dpssc03mq/image/upload/v1670254421/reloj-con-sentido-horario_vnhs4y.png"
               alt=""
               className="restaurant__icono"
             />{" "}
-            Horario de atención:
+            Horario de atención: 
             {restaurant && restaurant.horarios
               ? restaurant.horarios.map((item, index) => (
                   <p key={index}> {item} </p>
                 ))
               : "..."}
-          </span>
-          <p>
+          </p>
+          <p className="restaurant__p">
             <img
-              src="https://res.cloudinary.com/dpssc03mq/image/upload/v1670254421/contacto-telefonico_mrd0gb.png"
+              src="https://res.cloudinary.com/dpssc03mq/image/upload/v1670722493/signo-de-dolar_conw8c.png"
               alt=""
               className="restaurant__icono"
             />{" "}
-            Contacto:
+            Rango de Precios: <br/>
+            {restaurant && restaurant.precio ? restaurant.precio : "..."}{" "}
           </p>
         </section>
 
