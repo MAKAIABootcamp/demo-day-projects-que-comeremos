@@ -1,6 +1,6 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { collection, doc, getDoc, setDoc } from "firebase/firestore";
-import { auth, dataBase } from "../../Firebase/firebasecofi";
+import { auth, dataBase, google } from "../../Firebase/firebasecofi";
 import { userTypes } from "../types/userTypes";
 const collectionName="usuarios"
 const usuarioColletion=collection(dataBase,collectionName)
@@ -109,5 +109,35 @@ export const actionLoginSync = (user) => {
 const actionUserLogOutSync=()=>{
   return{
     type:userTypes.USER_LOGOUT,
+  }
+}
+
+//GOOGLE
+export const loginProviderAsync = (provider) =>{
+  return (dispatch) =>{
+    signInWithPopup(auth,google)
+    .then((result)=>{
+      const user = result.user
+      console.log(user);
+      const { displayName, email, accessToken, phoneNumber, photoURL, uid } =
+          user.auth.currentUser;
+        dispatch(
+          actionLoginSync({
+            name: displayName,
+            email,
+            accessToken,
+            phoneNumber,
+            avatar: photoURL,
+            uid,
+            error: false,
+          })
+        );
+    })
+    .catch((error)=>{
+      console.log(error);
+        dispatch(
+          actionLoginSync({ error: true, errorMessage: error.message })
+        );
+    })
   }
 }

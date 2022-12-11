@@ -19,7 +19,7 @@ const Restaurants = ({ isAuthentication }) => {
   const userStore = useSelector((store) => store.userStore);
   useEffect(() => {
     dispatch(actionGetFavoritesAsync(userStore.uid));
-  }, [userStore,dispatch]);
+  }, [userStore, dispatch]);
   useEffect(() => {
     if (!restaurantes.length) {
       dispatch(actionGetrestaurantesAsync());
@@ -34,20 +34,13 @@ const Restaurants = ({ isAuthentication }) => {
     const favorito = {
       restaurantName: restaurant,
       uid: userRuta,
-      
-    }
-    Swal.fire(
-      'Buen trabajo!',
-      'Agregado a su lista de Favoritos',
-      'success'
-    )
-    
+    };
+    Swal.fire("Buen trabajo!", "Agregado a su lista de Favoritos", "success");
 
     dispatch(actionAddFavoritosAsync(favorito));
   };
   const existe = favoritos.find((res) => res.restaurantName === "Game Over");
   console.log(existe);
-  
 
   return (
     <div className="restaurants">
@@ -57,12 +50,12 @@ const Restaurants = ({ isAuthentication }) => {
           restaurantes.map((restaurante, index) => (
             <Card key={index} className="restaurants__cards">
               <Card.Body>
-                <Card.Title onClick={() => sendRestaurant(restaurante.name)}>
+                <Card.Title>
                   {restaurante.name}{" "}
                 </Card.Title>
               </Card.Body>
 
-              <Carousel slide={false} className="restaurants__carousel">
+              <Carousel slide={false} className="restaurants__carousel" onClick={() => sendRestaurant(restaurante.name)}>
                 {restaurante.imagenes
                   ? restaurante.imagenes.map((img, index) => (
                       <Carousel.Item key={index}>
@@ -77,26 +70,25 @@ const Restaurants = ({ isAuthentication }) => {
                   : "..."}
               </Carousel>
 
-              {!favoritos.find((res) => res.restaurantName === restaurante.name)
-                ? ""
-                : <button
-                    className="restaurants__button"
-                  >
-                    {" "}
-                    añadido
-                  </button>}
+              {!favoritos.find(
+                (res) => res.restaurantName === restaurante.name
+              ) ? (
+                ""
+              ) : (
+                <button className="restaurants__button"> añadido</button>
+              )}
               {isAuthentication && !userStore.admin ? (
                 !favoritos.find(
                   (res) => res.restaurantName === restaurante.name
                 ) ? (
-                  <button className="restaurants__button"
+                  <button
+                    className="restaurants__button"
                     onClick={() =>
                       addToFavorite(restaurante.name, userStore.uid)
                     }
                   >
                     {" "}
                     Favoritos
-                    
                   </button>
                 ) : (
                   ""

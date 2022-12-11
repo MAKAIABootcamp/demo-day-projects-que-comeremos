@@ -64,11 +64,8 @@ const Restaurant = () => {
               className="restaurant__icono"
             />{" "}
             Horario de atención: 
-            {restaurant && restaurant.horarios
-              ? restaurant.horarios.map((item, index) => (
-                  <p key={index}> {item} </p>
-                ))
-              : "..."}
+            {restaurant && restaurant.horarios ? restaurant.horarios : "..."}{" "}
+
           </p>
           <p className="restaurant__p">
             <img
