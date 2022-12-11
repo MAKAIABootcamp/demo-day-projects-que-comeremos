@@ -17,29 +17,23 @@ const ControlledCarousel = () => {
       <Carousel.Item>
         <img className="d-flex instagramers" src={koto} alt="First slide" />
         <Carousel.Caption>
-          {/* <h3 className="carousel__text">First slide label</h3>
-          <p className="carousel__text">
-            Nulla vitae elit libero, a pharetra augue mollis interdum.
-          </p> */}
+         
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block instagramers"
+          className="d-flex instagramers"
           src={medellinSaborea}
           alt="Second slide"
         />
 
         <Carousel.Caption>
-          {/* <h3 className="carousel__text">Second slide label</h3>
-          <p className="carousel__text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p> */}
+        
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block instagramers"
+          className="d-flex instagramers"
           src={unafoodiemas}
           alt="Third slide"
         />

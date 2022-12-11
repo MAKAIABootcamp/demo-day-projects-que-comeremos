@@ -74,11 +74,11 @@ const Dice = ({ isAuthentication }) => {
               <div className="lado cinco"></div>
               <div className="lado seis"></div>
             </div>
+            
           )}
-          
         </div>
       ) : (
-        <h1> LOADING ...</h1>
+        <h1> Cargando...</h1>
       )}
       {eleccion?<div className="eleccion">
 

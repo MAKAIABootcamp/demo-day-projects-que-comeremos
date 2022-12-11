@@ -35,8 +35,8 @@ $color-sesion: #f9943b;
   @include buttons(1);
   width: 80px;
   height: 35px;
-  background-color: $color-sesion;
-  color: #fff;
+  background-color:white;
+  color: $color-sesion;
 }
 
 .imgSocial {

@@ -55,7 +55,6 @@ const Restaurant = () => {
             />{" "}
             Dirección: <br />
             <p className="restaurant__p">{restaurant && restaurant.sedes ? restaurant.sedes : "..."}{" "}</p>
-
             </p>
 
           <p className="restaurant__p">

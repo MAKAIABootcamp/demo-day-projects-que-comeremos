@@ -32,16 +32,15 @@ const Favoritos = () => {
     <>
     <NavbarDice/>
     <div className='favoritos'>
-      <h1>MI LISTA DE FAVORITOS</h1>
     {favoritos && favoritos.length ? favoritos.map((item,index)=>(
       <div key={index}>
-      <Card style={{ width: '18rem' }} className='favoritos' >
+      <Card style={{ width: '18rem' }} className='favoritos__cards' >
       <Card.Img variant="top" src="holder.js/100px180" />
       
-      <Card.Body>
+      <Card.Body >
         <Card.Title>{item.restaurantName}</Card.Title>
-        <Button onClick={() => sendRestaurant(item.restaurantName)}> ver</Button>
-      <Button onClick={() => deleteFavorite(item.id)}> eliminar</Button>
+        <Button onClick={() => sendRestaurant(item.restaurantName)} className="favoritos__button"> ver</Button>
+      <Button onClick={() => deleteFavorite(item.id)} className="favoritos__button"> eliminar</Button>
       </Card.Body>
     </Card>
   

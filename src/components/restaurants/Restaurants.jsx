@@ -62,12 +62,6 @@ const Restaurants = ({ isAuthentication }) => {
                 </Card.Title>
               </Card.Body>
 
-              {/* <span>{restaurante.imagenes?restaurante.imagenes.map((img,i)=>(
-          
-          <Card.Img key={i} className='lafoto' src={img} />
-          
-
-        )):""} </span> */}
               <Carousel slide={false} className="restaurants__carousel">
                 {restaurante.imagenes
                   ? restaurante.imagenes.map((img, index) => (

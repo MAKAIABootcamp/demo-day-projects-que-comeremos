@@ -1,7 +1,30 @@
+$color-sesion: #f9943b;
+
+
 .favoritos{
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    width: 100vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    &__cards{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        height: 200px;
+        box-shadow: 4px 4px 4px gainsboro;
+    }
+    &__button{
+        background-color: $color-sesion;
+        border: none;
+        width: 100px;
+        &:hover{
+            background-color:azure;
+            color: $color-sesion;
+        }
+    }
 }
