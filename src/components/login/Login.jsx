@@ -26,7 +26,7 @@ const Login = ({ isAuthentication }) => {
   }
   const handleLoginGoogle = ()=>{
     dispatch(loginProviderAsync('google'))
-    navigate('/home')
+    
   }
 
   return (
