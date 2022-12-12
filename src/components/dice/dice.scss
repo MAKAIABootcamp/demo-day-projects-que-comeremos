@@ -136,7 +136,7 @@ span {
 @mixin buttons($b) {
   border: none;
   border-radius: 20px;
-  width: 80px;
+  width: 90px;
   height: 30px;
   display: flex;
   align-items: center;
@@ -193,6 +193,7 @@ span {
   justify-content: center;
   align-items: center;
   padding-top: 150px;
+  cursor: pointer;
 }
 
 .dado {

@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react'
+import { Button, Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { actionDeletePaletaAsync, actionGetFavoritesAsync } from '../../redux/actions/favoritosActions';
+import NavbarDice from '../dice/NavbarDice';
+import "./favoritos.scss"
 
 const Favoritos = () => {
   const dispatch=useDispatch()
@@ -16,6 +20,7 @@ const Favoritos = () => {
   
   }, [userStore])
   console.log(favoritos);
+
   const sendRestaurant = (restaurante) => {
     navigate(`/Restaurant${restaurante}`);
   };
@@ -25,14 +30,23 @@ const Favoritos = () => {
   
   return (
     <>
-      
+    <NavbarDice/>
+    <div className='favoritos'>
     {favoritos && favoritos.length ? favoritos.map((item,index)=>(
-      <div key={index}>{item.restaurantName}
-      <button onClick={() => sendRestaurant(item.restaurantName)}> ver</button>
-      <button onClick={() => deleteFavorite(item.id)}> eliminar</button>
-      </div>
-
+      <div key={index}>
+      <Card style={{ width: '18rem' }} className='favoritos__cards' >
+      <Card.Img variant="top" src="holder.js/100px180" />
+      
+      <Card.Body >
+        <Card.Title>{item.restaurantName}</Card.Title>
+        <Button onClick={() => sendRestaurant(item.restaurantName)} className="favoritos__button"> ver</Button>
+      <Button onClick={() => deleteFavorite(item.id)} className="favoritos__button"> eliminar</Button>
+      </Card.Body>
+    </Card>
+  
+    </div>
     ))  :""}
+    </div>
     </>
    
   )

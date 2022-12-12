@@ -40,7 +40,7 @@ const Dice = ({ isAuthentication }) => {
       const y = lista.at(x);
       setEleccion(y)
       console.log(y);
-      Swal.fire("tu restaurante sera", `...?`, "info");
+      Swal.fire("Tu restaurante será", `¿?`, "info");
     }, 2500);
 
     setTimeout(() => {
@@ -74,11 +74,11 @@ const Dice = ({ isAuthentication }) => {
               <div className="lado cinco"></div>
               <div className="lado seis"></div>
             </div>
+            
           )}
-          
         </div>
       ) : (
-        <h1> LOADING ...</h1>
+        <h1> Cargando...</h1>
       )}
       {eleccion?<div className="eleccion">
 

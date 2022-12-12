@@ -5,7 +5,7 @@ import logoGoogle from "../../assets/logotipo-de-google-glass.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { actionLoginAsync } from "../../redux/actions/userActions";
+import { actionLoginAsync, loginProviderAsync } from "../../redux/actions/userActions";
 
 const Login = ({ isAuthentication }) => {
   const navigate=useNavigate()
@@ -19,26 +19,16 @@ const Login = ({ isAuthentication }) => {
     }
   }, [isAuthentication])
   
-  // useEffect(() => {
-  // console.log(userStore);
-  // if (!userStore.name) {
-  
-  //   navigate('/login')
-  //   console.log(userStore.name);
-  // }
-  // else{
-  //   navigate('/')
-
-  // }
-  // }, [userStore])
-
-
-
   const {register, handleSubmit, formState: { errors } } = useForm()
   const sendInfo=(data)=>{
     console.log(data);
   dispatch(actionLoginAsync(data))
   }
+  const handleLoginGoogle = ()=>{
+    dispatch(loginProviderAsync('google'))
+    navigate('/home')
+  }
+
   return (
     <div className="login">
       <section className="login__section">
@@ -66,11 +56,11 @@ const Login = ({ isAuthentication }) => {
           <Link to="/register" className="login__link">Regístrate aquí</Link>
         </p>
         <button className="login__facebook">
-          <img src={logoFacebook} alt="Logo Facebook" className="login__icon" />{" "}
+          <img src={logoFacebook}  alt="Logo Facebook" className="login__icon" />{" "}
           Continuar con Facebook
         </button>
-        <button className="login__google">
-          <img src={logoGoogle} alt="Logo Google" className="login__icon" />{" "}
+        <button className="login__google" onClick={handleLoginGoogle}>
+          <img src={logoGoogle}  alt="Logo Google" className="login__icon" />{" "}
           Continuar con Google
         </button>
       </section>

@@ -1,53 +1,66 @@
-$color-sesion: #F9943B;
+$color-sesion: #f9943b;
 
-.restaurant{
+.restaurant {
+  display: flex;
+  flex-direction: row-reverse;
+
+  &__section {
     display: flex;
-    flex-direction: row-reverse;
-    
-    &__section{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 20px;
-        width: 100%;
-        height: 100vh;
-     
-    }
-    &__links{
-        display: flex;
-        gap: 25px;
-    }
-    &__icono{
-        width: 20px;
-    }
-    &__article{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    &__carousel{
-        width: 500px;
-        height: 500px;
-        
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        text-align: center;
-    }
-    &__h1{
-        color: $color-sesion;
-        font-weight: bold;
-    }
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 100vh;
+  }
+  &__links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    width: 100%;
+    cursor: pointer;
+  }
+  &__icono {
+    width: 20px;
+  }
+  &__article {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__carousel {
+    width: 500px;
+    height: 500px;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+  }
+  &__h1 {
+    color: $color-sesion;
+    font-weight: bold;
+    width: 80%;
+  }
+  &__p {
+    width: 80%;
+    line-height: normal;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    display: flex;
+    flex-wrap:wrap;
+    line-height: 20px;
+  }
 }
-.d-block{
-  width: 100vw;
-   height:100vh;
-    
+.d-block {
+  width: 100%;
+  height: 100vh;
 }
 
-@media screen and (max-width:500px) {
-    .restaurant{
-        display: flex;
-        flex-direction: column-reverse;
-    }
+@media screen and (max-width: 500px) {
+  .restaurant {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }

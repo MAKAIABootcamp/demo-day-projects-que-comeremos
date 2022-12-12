@@ -64,8 +64,7 @@ const Footer = () => {
                 <ul className="list-unstyled mb-0">
                   <li>
                     <a href="#!" className="info__a text-black">
-                      <strong>Direccion:</strong> A la vuelta de la ezquina de
-                      martin el revueltero
+                      <strong>Direccion:</strong> Medellín, Antioquia
                     </a>
                   </li>
                   <li>
