@@ -22,8 +22,7 @@ const Home = ({ isAuthentication }) => {
         <div className="home__section1">
           <h1 className="home__title">¿Qué comeremos hoy?</h1>
           <p className="home__text">
-            Hey! Los invitamos a que tiren el dado y encuentren un lugar
-            diferente en donde puedan comer el dia de hoy. Que esperas?!
+          ¡Bienvenidos! Los invitamos a que tiren el dado y encuentren un lugar diferente en donde puedan comer el día de hoy, ¿Qué esperas?
           </p>
         </div>
         <div className="home__section2">
@@ -38,7 +37,7 @@ const Home = ({ isAuthentication }) => {
             </div>
           </div>
           <button onClick={handleDicePage} className="home__ThrowDice">
-            Tira el dado!
+          ¡Tira el dado!
           </button>
         </div>
       </section>

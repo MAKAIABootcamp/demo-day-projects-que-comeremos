@@ -23,7 +23,7 @@ const Footer = () => {
                     <input
                       type="email"
                       id="form5Example21"
-                      placeholder="Escribe aqui"
+                      placeholder="Escribe aquí"
                       className="form-control"
                     />
                   </div>
@@ -64,12 +64,12 @@ const Footer = () => {
                 <ul className="list-unstyled mb-0">
                   <li>
                     <a href="#!" className="info__a text-black">
-                      <strong>Direccion:</strong> Medellín, Antioquia
+                      <strong>Dirección:</strong> Medellín, Antioquia
                     </a>
                   </li>
                   <li>
                     <a href="#!" className="info__a text-black">
-                      <strong>Telefono:</strong> 123456789
+                      <strong>Teléfono:</strong> 123456789
                     </a>
                   </li>
                   <li>

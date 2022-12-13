@@ -16,3 +16,13 @@
   height: 25vh;
   min-width: 150px;
 }
+
+.carousel{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap:10px;
+  &__h3{
+    font-size: 16px;
+  }
+}

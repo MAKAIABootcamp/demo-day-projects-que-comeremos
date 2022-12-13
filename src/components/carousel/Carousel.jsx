@@ -13,6 +13,8 @@ const ControlledCarousel = () => {
   };
 
   return (
+    <div className="carousel">
+    <h3 className="carousel__h3">Influencers destacados: </h3>
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
         <img className="d-flex instagramers" src={koto} alt="First slide" />
@@ -46,6 +48,7 @@ const ControlledCarousel = () => {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+    </div>
   );
 };
 
